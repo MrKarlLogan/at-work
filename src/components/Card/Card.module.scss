@@ -1,0 +1,85 @@
+.card {
+  inline-size: 360px;
+  block-size: 168px;
+  background-color: #fdfdfd;
+  border-radius: 16px;
+  @include flex(row, center, center, 20px);
+  padding: 24px;
+  position: relative;
+
+  .img {
+    inline-size: 112px;
+    block-size: 100%;
+    object-fit: cover;
+    border-radius: calc(16px / 2);
+    flex-shrink: 0;
+  }
+
+  .description {
+    inline-size: 100%;
+    block-size: 100%;
+    @include flex(column, space-between, start);
+    font: {
+      family: "Manrope", sans-serif;
+    }
+
+    .title_box {
+      inline-size: 100%;
+      @include flex(row, space-between, start, 5px);
+
+      .btnDropDown {
+        inline-size: min-content;
+        cursor: pointer;
+
+        svg {
+          color: #161616;
+          transition: 0.1s;
+        }
+
+        &:hover {
+          svg {
+            color: #22a0bc;
+          }
+        }
+
+        &:active {
+          svg {
+            color: #595959;
+          }
+        }
+      }
+
+      .dropdownWrapper {
+        inline-size: min-content;
+        position: absolute;
+        top: calc(24px / 2);
+        right: calc(24px * 2);
+        z-index: 1;
+      }
+    }
+
+    .name {
+      font: {
+        size: 20px;
+        weight: 600;
+      }
+      color: #22a0bc;
+    }
+
+    .company {
+      font: {
+        size: 16px;
+        weight: 500;
+      }
+      color: #595959;
+    }
+
+    .city {
+      font: {
+        size: 14px;
+        weight: 400;
+      }
+      color: #9c9c9c;
+    }
+  }
+}

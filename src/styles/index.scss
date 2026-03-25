@@ -1,0 +1,15 @@
+@use "./normalize" as *;
+@use "./reset" as *;
+@use "./fonts" as *;
+
+body {
+  inline-size: 100%;
+  block-size: 100dvh;
+  background-color: #f4f4f4;
+}
+
+#root {
+  inline-size: 100%;
+  block-size: 100%;
+  @include flex(column, center, center);
+}

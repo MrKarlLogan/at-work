@@ -1,0 +1,34 @@
+.header {
+  inline-size: 100%;
+  padding: 16px 20px;
+  background-color: #fdfdfd;
+  @include flex();
+
+  .content {
+    inline-size: 100%;
+    max-inline-size: 1140px;
+    @include flex(row, space-between, center, 20px);
+
+    .icons {
+      margin-left: auto;
+      @include flex(row, center, center, 4px);
+    }
+
+    .user {
+      @include flex(row, center, center, 8px);
+      font: {
+        family: "Manrope", sans-serif;
+        size: 16px;
+        weight: 500;
+      }
+      color: #595959;
+      cursor: pointer;
+
+      .avatar {
+        inline-size: 20px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+      }
+    }
+  }
+}

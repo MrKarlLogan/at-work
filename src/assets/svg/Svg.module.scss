@@ -1,0 +1,9 @@
+.svgWrapper {
+  inline-size: 24px;
+  block-size: 24px;
+  @include flex();
+
+  .svg {
+    cursor: pointer;
+  }
+}

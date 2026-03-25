@@ -1,0 +1,23 @@
+.section {
+  inline-size: 100%;
+  block-size: min-content;
+  margin-block-start: 40px;
+
+  .title {
+    font: {
+      family: "Manrope", sans-serif;
+      size: 24px;
+      weight: 600;
+    }
+    color: #161616;
+    padding-block-end: 16px;
+    border-block-end: 1px solid #dadada;
+  }
+
+  .list {
+    margin-block-start: 28px;
+    @include flex(row, center, center, 40px);
+    flex-wrap: wrap;
+    row-gap: 32px;
+  }
+}

@@ -1,0 +1,26 @@
+.dropdown {
+  inline-size: 200px;
+  block-size: max-content;
+  padding: 8px;
+  border-radius: 8px;
+  @include flex(column, space-between, center, 8px);
+  font: {
+    family: "Manrope", sans-serif;
+    size: 16px;
+    weight: 500;
+  }
+  filter: drop-shadow(0 0 2px #5a5a5a);
+  background-color: #fdfdfd;
+
+  .btn {
+    inline-size: 100%;
+    block-size: 38px;
+    text-align: start;
+    padding-inline: 12px;
+    transition: 0.1s;
+
+    &:hover {
+      color: #22a0bc;
+    }
+  }
+}
