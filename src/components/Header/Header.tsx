@@ -20,7 +20,7 @@ const Header = () => {
         </div>
         <div className={styles.user}>
           <img src={mockUser.img} alt="Ваш аватар" className={styles.avatar} />
-          <span>{mockUser.name}</span>
+          <span className={styles.name}>{mockUser.name}</span>
         </div>
       </div>
     </header>

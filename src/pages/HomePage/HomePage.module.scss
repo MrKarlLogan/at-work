@@ -1,5 +1,14 @@
 .container {
   inline-size: 100%;
+  min-block-size: 100%;
   @include flex(column, start, center, 40px);
-  margin-block-start: 40px;
+  padding-block: 40px;
+
+  @media (max-width: 1200px) {
+    padding-inline: 20px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 32px 16px;
+  }
 }

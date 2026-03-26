@@ -7,12 +7,24 @@
   padding: 24px;
   position: relative;
 
+  @media (max-width: 375px) {
+    inline-size: 162px;
+    block-size: 272px;
+    @include flex(column, center, center, 16px);
+    padding: 16px;
+  }
+
   .img {
     inline-size: 112px;
     block-size: 100%;
     object-fit: cover;
     border-radius: calc(16px / 2);
     flex-shrink: 0;
+
+    @media (max-width: 375px) {
+      inline-size: 130px;
+      block-size: 120px;
+    }
   }
 
   .archive_img {
@@ -38,6 +50,11 @@
         svg {
           color: #161616;
           transition: 0.1s;
+
+          @media (max-width: 375px) {
+            inline-size: 18px;
+            block-size: 18px;
+          }
         }
 
         &:hover {
@@ -59,6 +76,11 @@
         top: calc(24px / 2);
         right: calc(24px * 2);
         z-index: 1;
+
+        @media (max-width: 375px) {
+          top: 175px;
+          right: 0;
+        }
       }
     }
 
@@ -68,6 +90,12 @@
         weight: 600;
       }
       color: #22a0bc;
+
+      @media (max-width: 375px) {
+        font: {
+          size: 18px;
+        }
+      }
     }
 
     .archive_name {
@@ -81,6 +109,12 @@
       }
       color: #595959;
       margin-block-end: auto;
+
+      @media (max-width: 375px) {
+        font: {
+          size: 14px;
+        }
+      }
     }
 
     .archive_company {
@@ -93,6 +127,12 @@
         weight: 400;
       }
       color: #9c9c9c;
+
+      @media (max-width: 375px) {
+        font: {
+          size: 10px;
+        }
+      }
     }
 
     .archive_city {

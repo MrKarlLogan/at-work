@@ -12,22 +12,37 @@
     .icons {
       margin-left: auto;
       @include flex(row, center, center, 4px);
+
+      @media (max-width: 375px) {
+        display: none;
+      }
     }
 
     .user {
       @include flex(row, center, center, 8px);
-      font: {
-        family: "Manrope", sans-serif;
-        size: 16px;
-        weight: 500;
-      }
-      color: #595959;
       cursor: pointer;
+
+      .name {
+        font: {
+          family: "Manrope", sans-serif;
+          size: 16px;
+          weight: 500;
+        }
+        color: #595959;
+
+        @media (max-width: 375px) {
+          display: none;
+        }
+      }
 
       .avatar {
         inline-size: 20px;
         aspect-ratio: 1;
         border-radius: 50%;
+
+        @media (max-width: 375px) {
+          inline-size: 28px;
+        }
       }
     }
   }
