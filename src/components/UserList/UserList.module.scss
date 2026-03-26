@@ -1,7 +1,9 @@
 .list {
   margin-block-start: 28px;
-  @include flex(row, start, center, 40px);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, auto));
+  justify-content: center;
+  gap: 40px;
   row-gap: 32px;
 
   @media (max-width: 800px) {
@@ -10,5 +12,6 @@
 
   @media (max-width: 375px) {
     margin-block-start: 16px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
