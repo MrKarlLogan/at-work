@@ -3,6 +3,15 @@
   block-size: 100%;
   @include flex(column, start, start, 24px);
 
+  @media (max-width: 1200px) {
+    padding-inline: 20px;
+  }
+
+  @media (max-width: 375px) {
+    padding-inline: 16px;
+    gap: 20px;
+  }
+
   .btn_back {
     @include flex(row, center, center, 8px);
     font: {
@@ -10,8 +19,26 @@
       size: 20px;
       weight: 600;
     }
-    color: #595959;
+    color: $gray-400;
     margin-block: 20.5px;
+
+    &::before {
+      inline-size: 24px;
+      aspect-ratio: 1;
+      transform: translateY(-2px);
+      content: "";
+      background-image: url("../../assets/svg/Backarrow.svg");
+
+      @media (max-width: 375px) {
+        transform: translateY(0);
+        background-image: url("../../assets/svg/Solid.svg");
+      }
+    }
+
+    @media (max-width: 375px) {
+      font-size: 16px;
+      margin-inline-start: 8px;
+    }
   }
 
   .content {
@@ -23,39 +50,77 @@
       weight: 500;
     }
 
+    @media (max-width: 950px) {
+      @include flex(column, center, start, 32px);
+    }
+
+    @media (max-width: 375px) {
+      @include flex(column, center, start, 32px);
+    }
+
     .imgBox {
       inline-size: 360px;
-      background-color: #fdfdfd;
+      background-color: $white;
       border-radius: 16px;
       @include flex(column, space-between, center, 40px);
       padding: 40px;
       flex-shrink: 0;
+
+      @media (max-width: 950px) {
+        inline-size: 100%;
+      }
+
+      @media (max-width: 375px) {
+        padding: 28px;
+        gap: 24px;
+      }
 
       .avatar {
         inline-size: 280px;
         block-size: 485px;
         object-fit: cover;
         border-radius: 8px;
+
+        @media (max-width: 375px) {
+          inline-size: 100%;
+          block-size: 187px;
+        }
       }
 
       .profile_data {
         inline-size: 100%;
         @include flex(column, center, start, 24px);
 
-        .title,
-        .others {
-          inline-size: 100%;
-          padding-block-end: 12px;
-          border-block-end: 1px solid #dadada;
+        @media (max-width: 375px) {
+          font-size: 14px;
+          gap: 20px;
         }
 
-        .title {
-          color: #161616;
+        .active_category,
+        .categories {
+          inline-size: 100%;
+          padding-block-end: 12px;
+          border-block-end: 1px solid $gray-200;
+        }
+
+        .active_category {
+          color: $gray-900;
           font-weight: 600;
         }
 
-        .others {
-          color: #9c9c9c;
+        .categories {
+          color: $gray-300;
+          cursor: pointer;
+
+          @media (hover: hover) {
+            &:hover {
+              color: $accent;
+            }
+          }
+
+          &:active {
+            color: $gray-900;
+          }
         }
       }
     }
@@ -63,9 +128,13 @@
     .descriptionBox {
       inline-size: 100%;
       block-size: 100%;
-      background-color: #fdfdfd;
+      background-color: $white;
       padding: 40px;
       border-radius: 16px;
+
+      @media (max-width: 375px) {
+        padding: 28px;
+      }
 
       .description {
         inline-size: 100%;
@@ -73,8 +142,24 @@
         @include flex(column, center, start, 32px);
         margin-block-start: 24px;
 
+        @media (max-width: 375px) {
+          gap: 24px;
+        }
+
         .input_section {
+          inline-size: 420px;
           @include flex(column, center, start, 24px);
+
+          @media (max-width: 550px) {
+            inline-size: 100%;
+            gap: 20px;
+          }
+        }
+      }
+
+      .btn_wrapper {
+        @media (max-width: 550px) {
+          inline-size: 100%;
         }
       }
     }

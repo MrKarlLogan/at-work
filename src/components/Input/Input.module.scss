@@ -10,11 +10,15 @@
       weight: 600;
     }
     line-height: 135%;
+
+    @media (max-width: 375px) {
+      font-size: 16px;
+    }
   }
 
   .input {
-    inline-size: 420px;
-    border: 2px solid #dadada;
+    inline-size: 100%;
+    border: 2px solid $gray-200;
     padding-inline: 16px 8px;
     padding-block: 10px;
     border-radius: 50px;
@@ -22,6 +26,10 @@
       family: "Manrope", sans-serif;
       size: 16px;
       weight: 500;
+    }
+
+    @media (max-width: 375px) {
+      font-size: 14px;
     }
   }
 
@@ -34,5 +42,16 @@
       weight: 400;
     }
     color: crimson;
+  }
+
+  .btn_reset {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    inline-size: 24px;
+    aspect-ratio: 1;
+    transform: translate(-35%, -35%);
+    background-image: url(../../assets/svg/Cross.svg);
+    z-index: 1;
   }
 }

@@ -3,20 +3,18 @@ import styles from "./EditUserPage.module.scss";
 import { useUserStore } from "@/store/userStore";
 import defaultImg from "@assets/defaultImg.webp";
 import Section from "@/components/Section/Section";
-import ButtonSVG from "./ButtonSvg/ButtonSvg";
 import Input from "@/components/Input/Input";
 import Button from "@/components/Button/Button";
 import { UserEditFormData, userEditSchema } from "@/schemas/userSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
-import SkeletonEditPage from "@/components/SkeletonEditPage/SkeletonEditPage";
 import Popup from "@/components/Popup/Popup";
 
 const EditUserPage = () => {
   const { userId } = useParams();
   const navigate = useNavigate();
-  const { users, editUser, loading } = useUserStore();
+  const { users, editUser } = useUserStore();
   const [showPopup, setShowPopup] = useState(false);
 
   const user = users.find((user) => user.id === Number(userId));
@@ -59,14 +57,9 @@ const EditUserPage = () => {
     setShowPopup(true);
   };
 
-  if (loading) {
-    return <SkeletonEditPage />;
-  }
-
   return (
     <div className={styles.container}>
       <button className={styles.btn_back} onClick={() => navigate("/")}>
-        <ButtonSVG />
         Назад
       </button>
       <div className={styles.content}>
@@ -77,10 +70,10 @@ const EditUserPage = () => {
             className={styles.avatar}
           />
           <div className={styles.profile_data}>
-            <h3 className={styles.title}>Данные профиля</h3>
-            <span className={styles.others}>Рабочее пространство</span>
-            <span className={styles.others}>Приватность</span>
-            <span className={styles.others}>Безопасность</span>
+            <h3 className={styles.active_category}>Данные профиля</h3>
+            <span className={styles.categories}>Рабочее пространство</span>
+            <span className={styles.categories}>Приватность</span>
+            <span className={styles.categories}>Безопасность</span>
           </div>
         </div>
         <div className={styles.descriptionBox}>
@@ -128,10 +121,9 @@ const EditUserPage = () => {
                   error={errors.companyName}
                 />
               </div>
-              <Button
-                title="Сохранить"
-                type="submit"
-              />
+              <div className={styles.btn_wrapper}>
+                <Button title="Сохранить" type="submit" />
+              </div>
             </form>
           </Section>
         </div>

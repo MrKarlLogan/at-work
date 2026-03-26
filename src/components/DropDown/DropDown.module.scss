@@ -10,7 +10,7 @@
     weight: 500;
   }
   filter: drop-shadow(0 0 2px #5a5a5a);
-  background-color: #fdfdfd;
+  background-color: $white;
 
   @media (max-width: 375px) {
     inline-size: 160px;
@@ -28,8 +28,10 @@
       block-size: 35px;
     }
 
-    &:hover {
-      color: #22a0bc;
+    @media (hover: hover) {
+      &:hover {
+        color: $accent;
+      }
     }
   }
 }

@@ -14,7 +14,7 @@
     block-size: 211px;
     border-radius: 16px;
     padding: 40px;
-    background-color: #fdfdfd;
+    background-color: $white;
     @include flex(column, center, center, 20px);
     position: relative;
     font: {
@@ -22,7 +22,16 @@
       size: 20px;
       weight: 600;
     }
-    color: #595959;
+    color: $gray-400;
+    text-align: center;
+
+    @media (max-width: 375px) {
+      inline-size: 271px;
+      block-size: 189px;
+      font-size: 18px;
+      padding: 32px;
+      gap: 16px;
+    }
 
     .closeBtn {
       position: absolute;

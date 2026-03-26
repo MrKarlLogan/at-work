@@ -18,6 +18,7 @@ const Input = (props: IInput) => {
         {...register(name)}
         className={`${styles.input} ${error ? styles.errorInput : ""}`}
       />
+      <button className={styles.btn_reset}></button>
       {error && <span className={styles.errorMessage}>{error.message}</span>}
     </div>
   );
