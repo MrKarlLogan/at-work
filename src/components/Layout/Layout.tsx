@@ -1,13 +1,8 @@
 import Header from "@components/Header/Header";
 import Main from "../Main/Main";
+import { LayoutProps } from "./types";
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-const Layout = (props: LayoutProps) => {
-  const { children } = props;
-
+const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Header />

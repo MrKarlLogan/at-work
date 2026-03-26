@@ -4,10 +4,9 @@ import DropDown from "../DropDown/DropDown";
 import { useState, useRef, useEffect } from "react";
 import defaultImg from "@assets/defaultImg.webp";
 import { useNavigate } from "react-router-dom";
-import { CardProps } from "@/types/card";
+import { CardProps } from "./types";
 
-const Card = (props: CardProps) => {
-  const { data, onArchive, onHide, onUnarchive, type } = props;
+const Card = ({ data, onArchive, onHide, onUnarchive, type }: CardProps) => {
   const navigate = useNavigate();
   const [showDropDown, setShowDropDown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);

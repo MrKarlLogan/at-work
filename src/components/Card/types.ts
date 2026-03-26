@@ -1,4 +1,5 @@
-import { User } from "./user";
+import { User } from "@/types/userApi";
+
 
 export interface CardProps {
   data: User;

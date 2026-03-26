@@ -10,22 +10,20 @@ const mockUser = {
   img: defaultImg,
 };
 
-const Header = () => {
-  return (
-    <header className={styles.header}>
-      <div className={styles.content}>
-        <Logo />
-        <div className={styles.icons}>
-          <FavoriteSVG />
-          <NotificationSVG />
-        </div>
-        <div className={styles.user}>
-          <img src={mockUser.img} alt="Ваш аватар" className={styles.avatar} />
-          <span className={styles.name}>{mockUser.name}</span>
-        </div>
+const Header = () => (
+  <header className={styles.header}>
+    <div className={styles.content}>
+      <Logo />
+      <div className={styles.icons}>
+        <FavoriteSVG />
+        <NotificationSVG />
       </div>
-    </header>
-  );
-};
+      <div className={styles.user}>
+        <img src={mockUser.img} alt="Ваш аватар" className={styles.avatar} />
+        <span className={styles.name}>{mockUser.name}</span>
+      </div>
+    </div>
+  </header>
+);
 
 export default Header;

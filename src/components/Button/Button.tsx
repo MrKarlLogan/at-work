@@ -1,11 +1,19 @@
-import { IButton } from "@/types/button";
 import styles from "./Button.module.scss";
+import { IButton } from "./types";
 
-const Button = (props: IButton) => {
-  const { title, type = "button", disabled = false } = props;
-
+const Button = ({
+  title,
+  type = "button",
+  disabled = false,
+  ...otherProps
+}: IButton) => {
   return (
-    <button className={styles.btn} type={type} disabled={disabled}>
+    <button
+      className={styles.btn}
+      type={type}
+      disabled={disabled}
+      {...otherProps}
+    >
       {title}
     </button>
   );

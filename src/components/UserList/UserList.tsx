@@ -1,12 +1,16 @@
-import { IUserList } from "@/types/userlist";
 import Card from "../Card/Card";
 import SkeletonCard from "../SkeletonCard/SkeletonCard";
+import { IUserList } from "./types";
 import styles from "./UserList.module.scss";
 import { useUserStore } from "@store/userStore";
 
-const UserList = (props: IUserList) => {
-  const { items = [], onArchive, onHide, onUnarchive, type = "active" } = props;
-
+const UserList = ({
+  items = [],
+  onArchive,
+  onHide,
+  onUnarchive,
+  type = "active",
+}: IUserList) => {
   const loading = useUserStore((state) => state.loading);
 
   if (loading) {

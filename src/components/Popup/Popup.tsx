@@ -2,10 +2,9 @@ import { useEffect } from "react";
 import styles from "./Popup.module.scss";
 import CloseSVG from "./svg/CloseSVG";
 import PopupSVG from "./svg/PopupSvg";
+import { IPopup } from "./types";
 
-const Popup = (props: { title: string; onClose: () => void }) => {
-  const { title, onClose } = props;
-
+const Popup = ({ title, onClose }: IPopup) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();

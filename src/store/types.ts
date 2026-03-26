@@ -1,4 +1,4 @@
-import { User } from "./user";
+import { User } from "@/types/userApi";
 
 export interface UserStore {
   users: User[];

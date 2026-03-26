@@ -1,4 +1,4 @@
-import { User } from "./user";
+import { User } from "./types";
 
 export interface IUserList {
   items: User[];

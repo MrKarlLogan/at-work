@@ -1,19 +1,17 @@
 import { useId, useRef, useState, useEffect } from "react";
 import styles from "./Input.module.scss";
-import { IInput } from "@/types/input";
+import { IInput } from "./types";
 
-const Input = (props: IInput) => {
-  const {
-    title,
-    name,
-    type = "text",
-    register,
-    error,
-    defaultValue,
-    onReset,
-    isDirty,
-  } = props;
-
+const Input = ({
+  title,
+  name,
+  type = "text",
+  register,
+  error,
+  defaultValue,
+  onReset,
+  isDirty,
+}: IInput) => {
   const id = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocus, setIsFocus] = useState(false);
