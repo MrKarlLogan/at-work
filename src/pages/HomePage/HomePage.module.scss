@@ -1,0 +1,5 @@
+.container {
+  inline-size: 100%;
+  @include flex(column, start, center, 40px);
+  margin-block-start: 40px;
+}

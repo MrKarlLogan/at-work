@@ -1,12 +1,12 @@
 import FavoriteSVG from "@/assets/svg/FavoriteSvg";
+import NotificationSVG from "@/assets/svg/NotificationSvg";
 import styles from "./Header.module.scss";
 import Logo from "./Logo/Logo";
-import NotificationSVG from "@/assets/svg/NotificationSvg";
-import { imgs } from "@/assets/img";
+import defaultImg from "@assets/defaultImg.webp";
 
 const mockUser = {
   name: "Mr.Offer",
-  img: imgs[0],
+  img: defaultImg,
 };
 
 const Header = () => {

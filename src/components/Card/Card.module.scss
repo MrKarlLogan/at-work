@@ -15,10 +15,14 @@
     flex-shrink: 0;
   }
 
+  .archive_img {
+    filter: grayscale(1);
+  }
+
   .description {
     inline-size: 100%;
     block-size: 100%;
-    @include flex(column, space-between, start);
+    @include flex(column, space-between, start, 4px);
     font: {
       family: "Manrope", sans-serif;
     }
@@ -66,12 +70,21 @@
       color: #22a0bc;
     }
 
+    .archive_name {
+      color: #595959;
+    }
+
     .company {
       font: {
         size: 16px;
         weight: 500;
       }
       color: #595959;
+      margin-block-end: auto;
+    }
+
+    .archive_company {
+      color: #9c9c9c;
     }
 
     .city {
@@ -80,6 +93,10 @@
         weight: 400;
       }
       color: #9c9c9c;
+    }
+
+    .archive_city {
+      color: #dadada;
     }
   }
 }

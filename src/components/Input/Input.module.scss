@@ -1,0 +1,38 @@
+.inputGroup {
+  inline-size: 100%;
+  @include flex(column, start, start, 10px);
+  position: relative;
+
+  .label {
+    font: {
+      family: "Manrope", sans-serif;
+      size: 18px;
+      weight: 600;
+    }
+    line-height: 135%;
+  }
+
+  .input {
+    inline-size: 420px;
+    border: 2px solid #dadada;
+    padding-inline: 16px 8px;
+    padding-block: 10px;
+    border-radius: 50px;
+    font: {
+      family: "Manrope", sans-serif;
+      size: 16px;
+      weight: 500;
+    }
+  }
+
+  .errorMessage {
+    left: 0;
+    bottom: -20px;
+    position: absolute;
+    font: {
+      size: 14px;
+      weight: 400;
+    }
+    color: crimson;
+  }
+}

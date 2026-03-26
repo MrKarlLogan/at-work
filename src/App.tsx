@@ -1,42 +1,26 @@
-import Header from "@components/Header/Header";
-import Main from "@components/Main/Main";
-import Section from "./components/Section/Section";
-import { useEffect, useState } from "react";
-import { User } from "./types/user";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
+import { useUserStore } from "./store/userStore";
+import { useEffect } from "react";
+import { useUsers } from "./hooks/useUsers";
 
-const App = () => {
-  const [users, setUsers] = useState<User[]>([]);
+function App() {
+  const { setUsers, setLoading, setError } = useUserStore();
+  const { data: users, isLoading, error } = useUsers();
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users",
-        );
+    setLoading(isLoading);
+  }, [isLoading, setLoading]);
 
-        if (!response.ok) {
-          throw new Error(`Ошибка запроса! Статус: ${response.status}`);
-        }
+  useEffect(() => {
+    setError(error ? error.message : null);
+  }, [error, setError]);
 
-        const data = await response.json();
-        setUsers(data);
-      } catch (error) {
-        throw new Error("Произошла ошибка при загрузке пользователей:" + error);
-      }
-    };
+  useEffect(() => {
+    if (users) setUsers(users);
+  }, [users, setUsers]);
 
-    fetchUsers();
-  }, []);
-
-  return (
-    <>
-      <Header />
-      <Main>
-        <Section title="Активные" items={users} />
-        <Section title="Архив" />
-      </Main>
-    </>
-  );
-};
+  return <RouterProvider router={router} />;
+}
 
 export default App;

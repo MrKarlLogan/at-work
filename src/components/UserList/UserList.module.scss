@@ -1,0 +1,6 @@
+.list {
+  margin-block-start: 28px;
+  @include flex(row, start, center, 40px);
+  flex-wrap: wrap;
+  row-gap: 32px;
+}

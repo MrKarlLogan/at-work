@@ -2,7 +2,7 @@
   inline-size: 100%;
   padding: 16px 20px;
   background-color: #fdfdfd;
-  @include flex();
+  @include flex;
 
   .content {
     inline-size: 100%;

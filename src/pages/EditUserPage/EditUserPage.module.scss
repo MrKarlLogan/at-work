@@ -1,0 +1,82 @@
+.container {
+  inline-size: 100%;
+  block-size: 100%;
+  @include flex(column, start, start, 24px);
+
+  .btn_back {
+    @include flex(row, center, center, 8px);
+    font: {
+      family: "Manrope", sans-serif;
+      size: 20px;
+      weight: 600;
+    }
+    color: #595959;
+    margin-block: 20.5px;
+  }
+
+  .content {
+    inline-size: 100%;
+    @include flex(row, center, start, 40px);
+    font: {
+      family: "Manrope", sans-serif;
+      size: 16px;
+      weight: 500;
+    }
+
+    .imgBox {
+      inline-size: 360px;
+      background-color: #fdfdfd;
+      border-radius: 16px;
+      @include flex(column, space-between, center, 40px);
+      padding: 40px;
+      flex-shrink: 0;
+
+      .avatar {
+        inline-size: 280px;
+        block-size: 485px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .profile_data {
+        inline-size: 100%;
+        @include flex(column, center, start, 24px);
+
+        .title,
+        .others {
+          inline-size: 100%;
+          padding-block-end: 12px;
+          border-block-end: 1px solid #dadada;
+        }
+
+        .title {
+          color: #161616;
+          font-weight: 600;
+        }
+
+        .others {
+          color: #9c9c9c;
+        }
+      }
+    }
+
+    .descriptionBox {
+      inline-size: 100%;
+      block-size: 100%;
+      background-color: #fdfdfd;
+      padding: 40px;
+      border-radius: 16px;
+
+      .description {
+        inline-size: 100%;
+        block-size: 100%;
+        @include flex(column, center, start, 32px);
+        margin-block-start: 24px;
+
+        .input_section {
+          @include flex(column, center, start, 24px);
+        }
+      }
+    }
+  }
+}

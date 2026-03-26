@@ -1,0 +1,17 @@
+.btn {
+  background-color: #161616;
+  font: {
+    family: "Manrope", sans-serif;
+    size: 16px;
+    weight: 600;
+  }
+  color: #fdfdfd;
+  padding: 12px 42px;
+  border-radius: 50px;
+  transition: 0.1s;
+
+  &:hover {
+    background-color: #f4f4f4;
+    color: #595959;
+  }
+}
