@@ -1,5 +1,5 @@
 ## Тестовое задание для Frontend (AT-WORK)
 
-Разработать интерфейс двухстраничного приложения на React
+Выполненная задача: Разработать интерфейс двухстраничного приложения на React.
 
-**Стек: React, TypeScript, Zustand, React Hook Form + Zod, tanstack query, SCSS, React Router v7**
+**Стек: React, TypeScript, Zustand, React Hook Form + Zod, Tanstack query, SCSS, React Router v7**
