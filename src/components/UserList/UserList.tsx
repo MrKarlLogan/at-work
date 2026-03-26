@@ -7,7 +7,7 @@ import { useUserStore } from "@store/userStore";
 const UserList = (props: IUserList) => {
   const { items = [], onArchive, onHide, onUnarchive, type = "active" } = props;
 
-  const { loading } = useUserStore();
+  const loading = useUserStore((state) => state.loading);
 
   if (loading) {
     return (

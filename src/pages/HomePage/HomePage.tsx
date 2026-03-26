@@ -2,10 +2,19 @@ import { useUserStore } from "@store/userStore";
 import Section from "@components/Section/Section";
 import styles from "./HomePage.module.scss";
 import UserList from "@components/UserList/UserList";
+import { useShallow } from "zustand/shallow";
 
 const HomePage = () => {
   const { activeUsers, archivedUsers, archiveUser, unarchiveUser, hideUser } =
-    useUserStore();
+    useUserStore(
+      useShallow((state) => ({
+        activeUsers: state.activeUsers,
+        archivedUsers: state.archivedUsers,
+        archiveUser: state.archiveUser,
+        unarchiveUser: state.unarchiveUser,
+        hideUser: state.hideUser,
+      })),
+    );
 
   return (
     <div className={styles.container}>

@@ -3,9 +3,16 @@ import { router } from "@router/index";
 import { useUserStore } from "@store/userStore";
 import { useEffect } from "react";
 import { useUsers } from "@hooks/useUsers";
+import { useShallow } from "zustand/shallow";
 
 function App() {
-  const { setUsers, setLoading, setError } = useUserStore();
+  const { setUsers, setLoading, setError } = useUserStore(
+    useShallow((state) => ({
+      setUsers: state.setUsers,
+      setLoading: state.setLoading,
+      setError: state.setError,
+    })),
+  );
   const { data: users, isLoading, error } = useUsers();
 
   useEffect(() => {

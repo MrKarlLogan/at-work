@@ -14,11 +14,17 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import Popup from "@components/Popup/Popup";
+import { useShallow } from "zustand/shallow";
 
 const EditUserPage = () => {
   const { userId } = useParams();
   const navigate = useNavigate();
-  const { users, editUser } = useUserStore();
+  const { users, editUser } = useUserStore(
+    useShallow((state) => ({
+      users: state.users,
+      editUser: state.editUser,
+    })),
+  );
   const [showPopup, setShowPopup] = useState(false);
 
   const user = users.find((user) => user.id === Number(userId));
