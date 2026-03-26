@@ -1,10 +1,11 @@
-import FavoriteSVG from "@/assets/svg/FavoriteSvg";
-import NotificationSVG from "@/assets/svg/NotificationSvg";
+import FavoriteSVG from "@assets/svg/FavoriteSvg";
+import NotificationSVG from "@assets/svg/NotificationSvg";
 import styles from "./Header.module.scss";
 import Logo from "./Logo/Logo";
 import defaultImg from "@assets/defaultImg.webp";
 
 const mockUser = {
+  //Я ни на что не намекаю, но... :)
   name: "Mr.Offer",
   img: defaultImg,
 };

@@ -1,19 +1,19 @@
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "./EditUserPage.module.scss";
-import { useUserStore } from "@/store/userStore";
+import { useUserStore } from "@store/userStore";
 import defaultImg from "@assets/defaultImg.webp";
-import Section from "@/components/Section/Section";
-import Input from "@/components/Input/Input";
-import Button from "@/components/Button/Button";
+import Section from "@components/Section/Section";
+import Input from "@components/Input/Input";
+import Button from "@components/Button/Button";
 import {
   UserEditFormData,
   userEditSchema,
   UserFormFields,
-} from "@/schemas/userSchema";
+} from "@schemas/userSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
-import Popup from "@/components/Popup/Popup";
+import Popup from "@components/Popup/Popup";
 
 const EditUserPage = () => {
   const { userId } = useParams();
@@ -26,7 +26,7 @@ const EditUserPage = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, dirtyFields },
     reset,
     setValue,
   } = useForm<UserEditFormData>({
@@ -98,6 +98,7 @@ const EditUserPage = () => {
                   register={register}
                   error={errors.name}
                   onReset={handleReset}
+                  isDirty={!!dirtyFields.name}
                 />
                 <Input
                   title="Никнейм"
@@ -105,6 +106,7 @@ const EditUserPage = () => {
                   register={register}
                   error={errors.username}
                   onReset={handleReset}
+                  isDirty={!!dirtyFields.username}
                 />
                 <Input
                   title="Почта"
@@ -113,6 +115,7 @@ const EditUserPage = () => {
                   register={register}
                   error={errors.email}
                   onReset={handleReset}
+                  isDirty={!!dirtyFields.email}
                 />
                 <Input
                   title="Город"
@@ -120,6 +123,7 @@ const EditUserPage = () => {
                   register={register}
                   error={errors.city}
                   onReset={handleReset}
+                  isDirty={!!dirtyFields.city}
                 />
                 <Input
                   title="Телефон"
@@ -127,6 +131,7 @@ const EditUserPage = () => {
                   register={register}
                   error={errors.phone}
                   onReset={handleReset}
+                  isDirty={!!dirtyFields.phone}
                 />
                 <Input
                   title="Название компании"
@@ -134,6 +139,7 @@ const EditUserPage = () => {
                   register={register}
                   error={errors.companyName}
                   onReset={handleReset}
+                  isDirty={!!dirtyFields.companyName}
                 />
               </div>
               <div className={styles.btn_wrapper}>

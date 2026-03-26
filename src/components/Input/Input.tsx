@@ -1,4 +1,4 @@
-import { useId, useRef, useState } from "react";
+import { useId, useRef, useState, useEffect } from "react";
 import styles from "./Input.module.scss";
 import { IInput } from "@/types/input";
 
@@ -11,14 +11,30 @@ const Input = (props: IInput) => {
     error,
     defaultValue,
     onReset,
+    isDirty,
   } = props;
+
   const id = useId();
-  const [isFocus, setIsFocus] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { onBlur, ref } = register(name);
+  const [isFocus, setIsFocus] = useState(false);
+  const [hasValue, setHasValue] = useState(!!defaultValue);
+  const { onChange, onBlur, ref, name: fieldName } = register(name);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      setHasValue(!!inputRef.current.value);
+    }
+  }, [defaultValue]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setHasValue(!!event.target.value);
+    onChange(event);
+  };
 
   const handleFocus = () => {
     setIsFocus(true);
+
+    if (inputRef.current) setHasValue(!!inputRef.current.value);
   };
 
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
@@ -30,6 +46,7 @@ const Input = (props: IInput) => {
     event.preventDefault();
     event.stopPropagation();
     onReset?.(name);
+    setHasValue(false);
     inputRef.current?.focus();
   };
 
@@ -40,23 +57,28 @@ const Input = (props: IInput) => {
       </label>
       <input
         id={id}
+        name={fieldName}
         type={type}
         defaultValue={defaultValue}
-        {...register(name)}
-        className={`${styles.input} ${error ? styles.errorInput : ""}`}
+        onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        ref={(evet) => {
-          ref(evet);
-          inputRef.current = evet;
+        ref={(event) => {
+          ref(event);
+          inputRef.current = event;
         }}
+        className={`
+          ${styles.input}
+          ${error ? styles.errorInput : ""}
+          ${isDirty ? styles.dirtyInput : ""}
+        `}
       />
-      {isFocus && (
+      {isFocus && hasValue && (
         <button
           type="button"
           className={styles.btn_reset}
           onMouseDown={handleReset}
-        ></button>
+        />
       )}
       {error && <span className={styles.errorMessage}>{error.message}</span>}
     </div>

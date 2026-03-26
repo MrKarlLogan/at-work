@@ -2,7 +2,7 @@ import { IUserList } from "@/types/userlist";
 import Card from "../Card/Card";
 import SkeletonCard from "../SkeletonCard/SkeletonCard";
 import styles from "./UserList.module.scss";
-import { useUserStore } from "@/store/userStore";
+import { useUserStore } from "@store/userStore";
 
 const UserList = (props: IUserList) => {
   const { items = [], onArchive, onHide, onUnarchive, type = "active" } = props;

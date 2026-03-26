@@ -34,6 +34,10 @@
     }
   }
 
+  .dirtyInput {
+    color: $gray-900;
+  }
+
   .errorMessage {
     left: 0;
     bottom: -20px;

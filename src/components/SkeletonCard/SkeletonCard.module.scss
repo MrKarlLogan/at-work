@@ -1,5 +1,6 @@
 .skeletonCard {
   inline-size: 360px;
+  block-size: 168px;
   background-color: $white;
   border-radius: 16px;
   display: flex;
@@ -7,20 +8,35 @@
   gap: 20px;
   padding: 24px;
 
+  @media (max-width: 375px) {
+    inline-size: 162px;
+    block-size: 272px;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
   .skeletonImg {
     inline-size: 112px;
-    block-size: 120px;
+    block-size: 100%;
     border-radius: 8px;
     background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
+    flex-shrink: 0;
+
+    @media (max-width: 375px) {
+      inline-size: 130px;
+      block-size: 120px;
+    }
   }
 
   .skeletonDescription {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    justify-content: space-between;
+    gap: 4px;
 
     .skeletonTitle {
       width: 80%;
@@ -29,6 +45,10 @@
       background-size: 200% 100%;
       animation: shimmer 1.5s infinite;
       border-radius: 4px;
+
+      @media (max-width: 375px) {
+        height: 18px;
+      }
     }
 
     .skeletonCompany {
@@ -38,6 +58,10 @@
       background-size: 200% 100%;
       animation: shimmer 1.5s infinite;
       border-radius: 4px;
+
+      @media (max-width: 375px) {
+        height: 14px;
+      }
     }
 
     .skeletonCity {
@@ -47,6 +71,10 @@
       background-size: 200% 100%;
       animation: shimmer 1.5s infinite;
       border-radius: 4px;
+
+      @media (max-width: 375px) {
+        height: 10px;
+      }
     }
   }
 }

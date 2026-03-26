@@ -1,7 +1,7 @@
-import { useUserStore } from "@/store/userStore";
+import { useUserStore } from "@store/userStore";
 import Section from "@components/Section/Section";
 import styles from "./HomePage.module.scss";
-import UserList from "@/components/UserList/UserList";
+import UserList from "@components/UserList/UserList";
 
 const HomePage = () => {
   const { activeUsers, archivedUsers, archiveUser, unarchiveUser, hideUser } =

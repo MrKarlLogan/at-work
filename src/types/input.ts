@@ -1,5 +1,5 @@
 import { FieldError, UseFormRegister } from "react-hook-form";
-import { UserEditFormData, UserFormFields } from "@/schemas/userSchema";
+import { UserEditFormData, UserFormFields } from "@schemas/userSchema";
 
 export interface IInput {
   title: string;
@@ -9,4 +9,5 @@ export interface IInput {
   error?: FieldError;
   defaultValue?: string;
   onReset?: (name: UserFormFields) => void;
+  isDirty?: boolean;
 }

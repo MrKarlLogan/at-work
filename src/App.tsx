@@ -1,8 +1,8 @@
 import { RouterProvider } from "react-router-dom";
-import { router } from "./router";
-import { useUserStore } from "./store/userStore";
+import { router } from "@router/index";
+import { useUserStore } from "@store/userStore";
 import { useEffect } from "react";
-import { useUsers } from "./hooks/useUsers";
+import { useUsers } from "@hooks/useUsers";
 
 function App() {
   const { setUsers, setLoading, setError } = useUserStore();

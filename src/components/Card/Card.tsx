@@ -20,18 +20,14 @@ const Card = (props: CardProps) => {
         !dropdownRef.current.contains(event.target as Node) &&
         buttonRef.current &&
         !buttonRef.current.contains(event.target as Node)
-      ) {
+      )
         setShowDropDown(false);
-      }
     };
 
-    if (showDropDown) {
+    if (showDropDown)
       document.addEventListener("mousedown", handleClickOutside);
-    }
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showDropDown]);
 
   const handleAction = (action: string) => {
