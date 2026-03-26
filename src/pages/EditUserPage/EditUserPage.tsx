@@ -5,7 +5,11 @@ import defaultImg from "@assets/defaultImg.webp";
 import Section from "@/components/Section/Section";
 import Input from "@/components/Input/Input";
 import Button from "@/components/Button/Button";
-import { UserEditFormData, userEditSchema } from "@/schemas/userSchema";
+import {
+  UserEditFormData,
+  userEditSchema,
+  UserFormFields,
+} from "@/schemas/userSchema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
@@ -24,6 +28,7 @@ const EditUserPage = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm<UserEditFormData>({
     resolver: zodResolver(userEditSchema),
     mode: "onChange",
@@ -41,6 +46,10 @@ const EditUserPage = () => {
       });
     }
   }, [user, reset]);
+
+  const handleReset = (name: UserFormFields) => {
+    setValue(name, "");
+  };
 
   const onSubmit = (data: UserEditFormData) => {
     if (!user) return;
@@ -88,12 +97,14 @@ const EditUserPage = () => {
                   name="name"
                   register={register}
                   error={errors.name}
+                  onReset={handleReset}
                 />
                 <Input
                   title="Никнейм"
                   name="username"
                   register={register}
                   error={errors.username}
+                  onReset={handleReset}
                 />
                 <Input
                   title="Почта"
@@ -101,24 +112,28 @@ const EditUserPage = () => {
                   type="email"
                   register={register}
                   error={errors.email}
+                  onReset={handleReset}
                 />
                 <Input
                   title="Город"
                   name="city"
                   register={register}
                   error={errors.city}
+                  onReset={handleReset}
                 />
                 <Input
                   title="Телефон"
                   name="phone"
                   register={register}
                   error={errors.phone}
+                  onReset={handleReset}
                 />
                 <Input
                   title="Название компании"
                   name="companyName"
                   register={register}
                   error={errors.companyName}
+                  onReset={handleReset}
                 />
               </div>
               <div className={styles.btn_wrapper}>

@@ -26,3 +26,11 @@ export const userEditSchema = z.object({
 });
 
 export type UserEditFormData = z.infer<typeof userEditSchema>;
+
+export type UserFormFields =
+  | "name"
+  | "username"
+  | "email"
+  | "city"
+  | "phone"
+  | "companyName";
